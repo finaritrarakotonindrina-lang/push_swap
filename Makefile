@@ -1,0 +1,26 @@
+NAME = push_swap
+CC = cc
+FLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+PRINTF_DIR = ft_printf
+PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
+SRC = main.c \
+ 	ft_atoi.c \
+ 	utils.c \
+ 	last_list.c \
+ 	add_front.c \
+ 	add_back.c\
+
+OBJS = $(SRC:.c=.o)
+all : $(NAME)
+$(NAME) : $(OBJS)
+	make -C $(PRINTF_DIR)
+	$(CC) $(FLAGS) $(OBJS) $(PRINTF_LIB) -o $(NAME)
+clean :
+	make -C $(PRINTF_DIR) clean
+	$(RM) $(OBJS)
+fclean : clean
+	make -C $(PRINTF_DIR) fclean
+	$(RM) $(NAME)
+re : fclean all
+.PHONY: all clean fclean re
