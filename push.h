@@ -22,6 +22,7 @@ t_list *return_rotate(t_list **lst);
 t_list *rotate(t_list **lst);
 void push(t_list **lst1, t_list **lst2);
 void	swap(t_list **lst);
+long	ft_atol(const char *nptr);
 
 
 #endif
