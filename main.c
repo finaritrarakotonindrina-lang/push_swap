@@ -6,91 +6,110 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 11:43:50 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/09 19:45:35 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/10 15:00:37 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-int	is_digit(char *str)
+static int	is_digit(char *str)
 {
 	int i;
 
 	i = 0;
 	if (!str)
 		return 0;
+	if(str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return(0);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
-		else if(str[i] == '+' || str[i] == '-')
-			i++;
 		i++;
 	}
 	return (1);
 }
-int valid_char(int argc, char **argv)
+static int valid_char(int argc, char **argv)
 {
 	int i;
 
 	i = 1;
-	while (i < argc - 1)
+	while (i < argc)
 	{
-		if(!is_digit(argv[i]))
-			return(1);
+		if(is_digit(argv[i]) == 0)
+			return(0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
-int	**char_to_int(int argc, char **argv)
+static int	**char_to_int(int argc, char **argv)
 {
 	int **array;
 	int i;
 
-	i = 1;
-	array = malloc(sizeof(int **)*(argc - 1));
+	i = 0;
+	array = malloc(sizeof(int **)*(argc));
 	while (i < argc - 1)
 	{
-		array[i] == atol(argv[i]);
+		array[i] = (int*)ft_atol(argv[i + 1]);
 		i++;
 	}
+	array[i] = NULL;
 	return (array);	
 }
-int has_duplicated(int argc, int **array)
+static int has_duplicated(int **array)
 {
 	int i;
 	int j;
-	
-	i = 1;
-	while (array)
+
+	i = 0;
+	while (array[i] != NULL)
 	{
 		j = i + 1;
-		while (i < argc~)
+		while (array[j] != NULL)
 		{
-			if (array[i] == array[i + j])
+			if (array[i] == array[j])
 				return (0);
-			i++;
+			j++;
 		}
+		i++;
 	}
 	return (1);
 }
-int val
+#include <stdio.h>
 int main(int argc, char **argv)
 {
-	char **array;
+	int **array;
 	t_list *stack_a;
 	t_list *stack_b;
 	t_list *stock_it;
+	int digit;
+	int i;
 
-	stack_a = NULL; 
-	stack_b= NULL;
-	stock_it= NULL;
+	stack_a = malloc(sizeof(t_list)); 
+	stack_b= malloc(sizeof(t_list));
+	stock_it= malloc(sizeof(t_list));
+	array = NULL;
+	digit= 0;
+	i = 0;
 	if (argc == 1)
 		return 0;
 	else
 	{
-		
+		if (valid_char(argc, argv) == 0)
+			return (0);
+		printf("%d\n",valid_char(argc, argv));
+		array = char_to_int(argc, argv);
+		if (has_duplicated(array) == 0)
+			return (0);
+		printf("%d\n",has_duplicated(array));
+	// 	while (array[i] != NULL)
+	// 	{
+    // 		printf("%ld\n", (long)array[i]);
+    // 		i++;
+	// 	}
 	}
-	
 }
 

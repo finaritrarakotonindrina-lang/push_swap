@@ -5,7 +5,7 @@ RM = rm -rf
 PRINTF_DIR = ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 SRC = main.c \
- 	ft_atoi.c \
+ 	ft_atol.c \
  	utils.c \
  	last_list.c \
  	add_front.c \

@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -11,7 +12,6 @@ typedef struct s_list
 	struct s_list	*prev;
 }					t_list;
 
-long	ft_atoi(const char *nptr);
 int main (int argc, char **argv);
 t_list	*last_list(t_list *lst);
 void	add_front(t_list **lst, t_list *new);
