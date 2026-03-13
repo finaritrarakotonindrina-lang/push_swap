@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 17:58:32 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/12 14:22:23 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/12 15:16:57 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ long	ft_atol(const char *nptr)
 		result = result * 10 + nptr[i] - 48;
 		i++;
 	}
-	if (result * sign >= __INT_MAX__ || result * sign <= -2147483648)
-		return (0);
 	return (result * sign);
 }
