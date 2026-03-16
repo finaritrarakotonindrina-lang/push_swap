@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:55:25 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/08 08:01:47 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/16 18:48:17 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	swap(t_list **lst)
 {
 	if (!lst || *lst || !(*lst) -> next)
 		return ;
-	void *temp;
+	int temp;
 	temp = (*lst)->content;
 	(*lst) -> content = (*lst)->next->content;
 	(*lst)->next->content = temp;

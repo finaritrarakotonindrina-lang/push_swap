@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   strdup_fonc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 17:58:32 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/16 14:02:58 by finarako         ###   ########.fr       */
+/*   Created: 2026/01/27 11:41:51 by finarako          #+#    #+#             */
+/*   Updated: 2026/03/16 20:07:13 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-long	ft_atol(const char *nptr)
+char	*strdup_fonc(const char *s)
 {
-	long	i;
-	long	sign;
-	long	result;
+	size_t	len;
+	char	*dest;
+	int		i;
 
+	len = strlen_fonc(s);
+	dest = malloc (len + 1);
 	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == 43 || nptr[i] == 45)
+	if (!dest)
+		return (NULL);
+	while (s[i])
 	{
-		if (nptr[i] == 45)
-			sign *= -1;
+		dest[i] = s[i];
 		i++;
 	}
-	while (nptr[i] && nptr[i] >= 48 && nptr[i] <= 57)
-	{
-		result = result * 10 + nptr[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	dest[i] = '\0';
+	return (dest);
 }

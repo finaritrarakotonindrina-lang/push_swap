@@ -7,12 +7,19 @@ PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 SRC = main.c \
  	ft_atol.c \
  	utils.c \
+	utils_2.c \
  	last_list.c \
  	add_front.c \
- 	add_back.c\
-
+ 	add_back.c \
+	split_fonc.c \
+	the_input.c \
+	substr_fonc.c\
+	strlen_fonc.c\
+	strdup_fonc.c
 OBJS = $(SRC:.c=.o)
 all : $(NAME)
+%.o : %.c
+	$(CC) $(FLAGS) -c $< -o $@
 $(NAME) : $(OBJS)
 	make -C $(PRINTF_DIR)
 	$(CC) $(FLAGS) $(OBJS) $(PRINTF_LIB) -o $(NAME)
