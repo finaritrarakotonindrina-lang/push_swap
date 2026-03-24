@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen_fonc.c                                      :+:      :+:    :+:   */
+/*   find_min_position.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 10:10:49 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/19 12:44:27 by finarako         ###   ########.fr       */
+/*   Created: 2026/03/23 08:03:20 by finarako          #+#    #+#             */
+/*   Updated: 2026/03/23 08:05:17 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-size_t	strlen_fonc(const char *s)
+t_list find_min_position(t_list **stack_a)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	
 }

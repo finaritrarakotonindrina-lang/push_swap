@@ -18,7 +18,8 @@ SRC = main.c \
 	strdup_fonc.c \
 	is_sorted.c \
 	strjoin_fonc.c\
-	join_argv.c\
+	join_argv.c \
+	for_min_five.c
 OBJS = $(SRC:.c=.o)
 all : $(NAME)
 %.o : %.c

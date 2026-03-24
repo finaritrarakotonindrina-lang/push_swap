@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 13:27:45 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/17 16:02:50 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/19 12:43:49 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*strjoin_fonc(char const *s1, char const *s2)
 	size_t	j;
 	char	*concast;
 
-	leng1 = ft_strlen(s1);
-	leng2 = ft_strlen(s2);
+	leng1 = strlen_fonc(s1);
+	leng2 = strlen_fonc(s2);
 	concast = malloc(leng1 + leng2 + 1);
 	if (!concast)
 		return (NULL);

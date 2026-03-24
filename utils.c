@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:55:25 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/16 18:48:17 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/23 08:53:50 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void push(t_list **lst1, t_list **lst2)
 
 void	swap(t_list **lst)
 {
-	if (!lst || *lst || !(*lst) -> next)
+	if (!lst || !*lst || !(*lst) -> next)
 		return ;
 	int temp;
 	temp = (*lst)->content;

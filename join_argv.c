@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:40:39 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/17 16:05:13 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/19 14:04:36 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,13 @@ char *join_argv(int argc, char **argv)
 	}
 	return (newargv);
 }
+int compt_newargc(char **newargv)
+{
+	int newargc;
+
+	newargc = 0;
+	while (newargv[newargc])
+		newargc++;
+	return (newargc);
+}
+

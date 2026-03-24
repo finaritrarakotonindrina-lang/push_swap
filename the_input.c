@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:41:35 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/17 14:07:01 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/23 09:23:12 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int valid_argv(int argc, char **argv)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		if(is_digit(argv[i]) == 0)
@@ -44,7 +44,7 @@ static int valid_argv(int argc, char **argv)
 	}
 	return (1);
 }
-static int **argv_to_int(int argc, char **argv, int start)
+static int **argv_to_int(int argc, char **argv)
 {
     int **array;
     int i;
@@ -56,7 +56,7 @@ static int **argv_to_int(int argc, char **argv, int start)
         return (NULL);
     while (i < argc)
     {
-        tmp = ft_atol(argv[start + i]);
+        tmp = ft_atol(argv[i]);
         if (tmp > INT_MAX || tmp < INT_MIN)
         {
             free(array);
@@ -76,6 +76,11 @@ static int has_duplicated(int **array)
 	int j;
 
 	i = 0;
+	if (!array)
+	{
+		ft_printf("error\n");
+		exit(1);
+	}
 	while (array[i] != NULL)
 	{
 		j = i + 1;
@@ -106,12 +111,12 @@ static void int_to_stack_value(int **array, t_list **stack_a)
 		i++;
 	}
 }
-void free_it(int **array, int argc)
+void is_free(int **array, int argc)
 {
 	int i;
 
 	i = 0;
-	while (i < (argc - 1))
+	while (i < (argc))
 	{
 		free(array[i]);
 		i++;
@@ -120,22 +125,19 @@ void free_it(int **array, int argc)
 }
 
 #include <stdio.h>
-t_list *the_input(int argc , char **argv , int **array, t_list **stack_a, int start)
+t_list *the_input(int argc, char **argv , int **array, t_list **stack_a)
 {
 	if (valid_argv(argc, argv) == 0)
-			return (0);
-		printf("%d\n",valid_argv(argc, argv));
-		array = argv_to_int(argc, argv, start);
-		if (has_duplicated(array) == 0)
-			return (0);
-		printf("%d\n",has_duplicated(array));
-		int_to_stack_value(array, stack_a);
-		free_it(array, argc);
-		// if (is_sorted(&stack_a) == false)
-		// {
-			
-		// }
-		// else
-		// 	exit(1);
-		return (*stack_a);
+	{
+		ft_printf("error");
+		return (0);	
+	}
+	printf("%d\n",valid_argv(argc, argv));
+	array = argv_to_int(argc, argv);
+	if (has_duplicated(array) == 0)
+		return (0);
+	printf("%d\n",has_duplicated(array));
+	int_to_stack_value(array, stack_a);
+	is_free(array, argc);
+	return (*stack_a);
 }
