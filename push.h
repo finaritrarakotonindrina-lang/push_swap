@@ -15,6 +15,7 @@ typedef struct s_list
 }					t_list;
 
 int main (int argc, char **argv);
+int	ft_strcmp(char *s1, char *s2);
 t_list	*last_list(t_list *lst);
 void	add_front(t_list **lst, t_list *new);
 char	*strjoin_fonc(char const *s1, char const *s2);
@@ -42,4 +43,9 @@ void rotate_rotate(t_list **lst_a, t_list **lst_b);
 void return_rotate_rotate(t_list **lst_a, t_list **lst_b);
 t_list *for_two(t_list *stack_a);
 t_list *for_thre(t_list **stack_a);
+void ft_assign_index(t_list *stack);
+int	stack_size(t_list *lst);
+void bring_to_top(t_list **stack_a, t_list *target);
+int find_position(t_list *stack_a, t_list *target);
+t_list *the_target(t_list *stack_a, int i);
 #endif

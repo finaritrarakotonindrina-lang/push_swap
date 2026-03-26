@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   for_min_five.c                                     :+:      :+:    :+:   */
+/*   manage_min_four.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 08:12:10 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/24 11:47:24 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:53:57 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,28 +66,8 @@ t_list *for_thre(t_list **stack_a)
 	}
 	return (*stack_a);
 }
-int ft_assing_index(t_list *stack)
-{
-	t_list *temp;
-	int index;
 
-	index = 0;
-	temp = stack;
-	while (stack)
-	{
-		while (temp)
-		{
-			if (temp -> content > temp ->next ->content)
-				index ++;
-			temp = temp ->next;
-		}
-		stack->index = index;
-		stack = stack -> next;
-	}
-	return (index);
-}
 
-t_list *for_four(t_list **stack_a)
-{
-	
-}
+
+
+

@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 11:43:50 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/23 16:10:12 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:55:23 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,44 @@ void free_split_argv(char **split_argv)
 	}
 	free(split_argv);
 }
+void ft_assign_index(t_list *stack)
+{
+	t_list *temp1;
+	t_list *temp2;
+	int index;
+
+	temp1 = stack;
+	while (temp1)
+	{
+		temp2 = stack;
+		index = 0;
+		while (temp2)
+		{
+			if (temp2 -> content < temp1 ->content)
+				index ++;
+			temp2 = temp2 ->next;
+		}
+		temp1->index = index;
+		temp1 = temp1 -> next;
+	}
+}
+bool is_sorted(t_list **stack_a)
+{
+	t_list *temp1;
+	t_list *temp2;
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+        return (true);
+	temp1 = *stack_a;
+	temp2 = (*stack_a) -> next;
+	while (temp2)
+	{
+		if(temp1 -> content > temp2 -> content)
+			return (false);
+		temp1 = temp2;
+		temp2 = temp1 -> next;
+	}
+	return (true);
+}
 
 int main(int argc, char **argv)
 {
@@ -38,7 +76,7 @@ int main(int argc, char **argv)
 	array = NULL;
 	if (argc == 1)
 	{
-		ft_printf("error");
+		printf("error");
 		return 0;
 	}
 	else
@@ -49,19 +87,19 @@ int main(int argc, char **argv)
 		argc = compt_newargc(split_argv);
 		stack_a = the_input(argc, split_argv, array, &stack_a);
 		free_split_argv(split_argv);
+		ft_assign_index(stack_a);
 		if (is_sorted(&stack_a) == false)
 		{
-			ft_printf("false mann\n");
-			for_thre(&stack_a);
+			
 		}
 		else
-			ft_printf("true mann\n");
+			printf("true mann\n");
 			
 	}
 		while (stack_a != NULL)
 	{
-		ft_printf("[%d] -> ",(*stack_a).content);
+		printf("[%d] -> ",(*stack_a).content);
+		printf("rank%d -> ",(*stack_a).index);
 		stack_a = stack_a -> next;
 	}
-	ft_printf("NULL\n");
 }

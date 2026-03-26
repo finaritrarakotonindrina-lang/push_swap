@@ -6,7 +6,7 @@
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:41:35 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/23 09:23:12 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:48:33 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,30 +70,7 @@ static int **argv_to_int(int argc, char **argv)
     return (array);
 }
 
-static int has_duplicated(int **array)
-{
-	int i;
-	int j;
 
-	i = 0;
-	if (!array)
-	{
-		ft_printf("error\n");
-		exit(1);
-	}
-	while (array[i] != NULL)
-	{
-		j = i + 1;
-		while (array[j] != NULL)
-		{
-			if (*array[i] == *array[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 static void int_to_stack_value(int **array, t_list **stack_a)
 {
 	int i;
@@ -110,18 +87,6 @@ static void int_to_stack_value(int **array, t_list **stack_a)
 		add_back(stack_a, new);
 		i++;
 	}
-}
-void is_free(int **array, int argc)
-{
-	int i;
-
-	i = 0;
-	while (i < (argc))
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
 }
 
 #include <stdio.h>

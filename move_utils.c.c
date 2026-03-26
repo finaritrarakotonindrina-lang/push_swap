@@ -1,38 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   move_utils.c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: finarako <finarako@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:55:25 by finarako          #+#    #+#             */
-/*   Updated: 2026/03/23 08:53:50 by finarako         ###   ########.fr       */
+/*   Updated: 2026/03/26 13:40:29 by finarako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-t_list *take_top_list(t_list **lst)
-{
-	if (!lst || !*lst)
-		return (NULL);
-	t_list *temp;
-	temp = (*lst);
-	*lst = (*lst) -> next;
-	temp -> next = NULL;
-	return (temp);
-}
-t_list *take_bouttom_list(t_list **lst)
-{
-	if (!lst || !*lst || !(*lst)->next)
-		return (NULL);
-	t_list *temp;
-	temp = last_list(*lst);
-	while ((*lst)-> next -> next != NULL)
-		lst = &(*lst) -> next;
-	(*lst) -> next = NULL;
-	return (temp);
-}
 t_list *return_rotate(t_list **lst)
 {
 	if (!lst)
